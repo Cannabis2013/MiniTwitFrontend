@@ -1,12 +1,8 @@
 
 export default {
-  name: 'header-navigation-item',
+  name: 'signupcomponent',
   components: {},
-  props: [
-      "imageUrl",
-      "itemTitle",
-      "target"
-  ],
+  props: [],
   data () {
     return {
 
@@ -16,6 +12,7 @@ export default {
 
   },
   mounted () {
+
   },
   methods: {
 

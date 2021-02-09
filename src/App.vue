@@ -2,12 +2,10 @@
 
 <script>
 import MyHeaderComponent from "./components/headercomponent/index.vue"
-import StartComponent from "./components/startComponent/index.vue"
 export default {
   name: 'App',
   components: {
-    MyHeaderComponent,
-    StartComponent
+    MyHeaderComponent
   }
 }
 </script>

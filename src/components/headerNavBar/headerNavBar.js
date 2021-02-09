@@ -13,12 +13,7 @@ export default {
   ],
   data()  {
     return {
-      /*
-        API user status codes:
-          - Not logged in: 1
-          - Logged in: 2
-       */
-      userStatus : 1
+      userLoggedIn : false
     }
   },
   computed: {
@@ -27,8 +22,17 @@ export default {
   },
   mounted () {
     const url = apiHostUrl + "UserStatus";
+    function handleResponse(response)
+    {
+      /*
+        API response codes:
+          - Not logged in: 1
+          - Logged in: 2
+       */
+      this.userLoggedIn = response.data === 2;
+    }
     Axios.get(url)
-        .then(response => this.userStatus = response.data)
+        .then(data => handleResponse(data))
         .catch(response => console.log(response));
   },
   methods: {

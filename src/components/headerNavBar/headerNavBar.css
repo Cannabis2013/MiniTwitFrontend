@@ -1,7 +1,7 @@
 .navBarBody {
     display: grid;
     grid-auto-flow: column;
-    height: 80px;
+    height: 64px;
     margin: auto auto 0;
     overflow: hidden;
     

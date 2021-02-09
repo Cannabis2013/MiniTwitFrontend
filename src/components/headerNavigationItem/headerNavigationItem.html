@@ -1,7 +1,10 @@
 
 <section class="itemBody">
-    <router-link class="itemLinkBody" to="">
-        <img :src="require('../../assets/' + imageUrl)"  alt="" class="itemImage">
+    <router-link class="itemLinkBody" :to="this.target">
+        <div id="upperSpacer"></div>
+        <div class="imageContainer">
+            <img :src="require('../../assets/' + imageUrl)"  alt="" class="itemImage">
+        </div>
         <p class="itemDescription"> {{itemTitle}} </p>
     </router-link>
 </section>
