@@ -1,19 +1,18 @@
-import NavItem from "../headerNavigationItem/index.vue"
-import Axios from "axios";
-
-const apiHostUrl = "https://localhost:5001/MiniTwitIndex/";
+import ActiveButton from "../activebuttoncomponent/index.vue"
+import UserInformation from "../userinformationcomponent/index.vue"
 
 export default {
   name: 'header-nav-bar',
   components: {
-    NavItem
+    ActiveButton,
+    UserInformation
   },
   props: [
       
   ],
   data()  {
     return {
-      userLoggedIn : false
+      userLoggedIn : false,
     }
   },
   computed: {
@@ -21,19 +20,11 @@ export default {
   created() {
   },
   mounted () {
-    const url = apiHostUrl + "UserStatus";
-    function handleResponse(response)
+    if(this.$cookies.get("tokenId") !== null)
     {
-      /*
-        API response codes:
-          - Not logged in: 1
-          - Logged in: 2
-       */
-      this.userLoggedIn = response.data === 2;
+      this.userLoggedIn = true;
+      console.log("Something is wrong!");
     }
-    Axios.get(url)
-        .then(data => handleResponse(data))
-        .catch(response => console.log(response));
   },
   methods: {
     

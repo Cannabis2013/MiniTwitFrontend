@@ -3,8 +3,12 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Start from "./components/startComponent/index.vue"
 import SignUp from "./components/signupcomponent/index.vue"
+import SignIn from "./components/signincomponent/index.vue"
+import VueCookies from 'vue-cookies'
+
 
 Vue.use(VueRouter)
+Vue.use(VueCookies)
 
 const routes = [
   { 
@@ -12,6 +16,9 @@ const routes = [
   },
   {
     path: '/signUp', component: SignUp
+  },
+  {
+    path: '/signIn', component: SignIn
   }
 ]
 
@@ -19,6 +26,9 @@ export const router = new VueRouter({
   base: '/',
   routes
 });
+
+Vue.$cookies.set('theme','default');
+Vue.$cookies.set('hover-time','1s');
 
 Vue.config.productionTip = false
 

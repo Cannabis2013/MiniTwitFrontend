@@ -1,11 +1,30 @@
 <template src="./main.html"></template>
-
 <script>
 import MyHeaderComponent from "./components/headercomponent/index.vue"
+import axios from "axios";
+
 export default {
   name: 'App',
+  data() {
+    return {
+      handleRecieveAddress : function(response)
+      {
+        this.$cookies.set("localAddress",response.ip);
+      }
+      
+    }
+  },
   components: {
     MyHeaderComponent
+  },
+  mounted() {
+    
+    axios({
+      method : "get",
+      url : "http://ipinfo.io/json"
+    })
+        .then(response => this.handleRecieveAddress(response.data))
+        .catch();
   }
 }
 </script>

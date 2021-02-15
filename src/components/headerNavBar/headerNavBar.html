@@ -1,9 +1,11 @@
 
-<section v-if="!userLoggedIn" class="navBarBody">
-    <NavItem imageUrl="user.png" itemTitle="Sign up" target="signUp"></NavItem>
-    <NavItem imageUrl="user.png" itemTitle="Sign in" target=""></NavItem>
-</section>
-<section v-else class="navBarBody">
-    <NavItem imageUrl="user.png" itemTitle="Sign out"></NavItem>
+<section class="navBarBody">
+    <div v-if="!userLoggedIn" class="contentDiv" >
+        <ActiveButton imageUrl="user.png" itemTitle="Sign up" target="signUp"></ActiveButton>
+        <ActiveButton imageUrl="user.png" itemTitle="Sign in" target="signIn"></ActiveButton>
+    </div>
+    <div v-else class="contentDiv">
+        <UserInformation ></UserInformation>
+    </div>
 </section>
 

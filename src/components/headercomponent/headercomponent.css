@@ -6,17 +6,19 @@
     border-bottom: 12px solid #2c3e50;
     color: black;
 }
-.headercomponent:link
-{
-    text-decoration: none;
-}
 .headertitle
 {
     grid-column: 3 / 3;
     font-size: 96px;
     margin: 0;
-    width: 100%;
     text-align: center;
+    color: black;
+}
+
+.headertitle:link
+{
+    text-decoration: none;
+    color: black;
 }
 .centerItem
 {
