@@ -21,10 +21,12 @@ export default {
   mounted() {
     axios({
       method : "get",
-      url : "http://ipinfo.io/json"
+      url : "https://ipinfo.io/json"
     })
         .then(response => this.handleRecieveAddress(response.data))
         .catch();
+    if(this.$cookies.get("TokenId") !== null)
+      this.$router.push("/signedInMessages");
   }
 }
 </script>

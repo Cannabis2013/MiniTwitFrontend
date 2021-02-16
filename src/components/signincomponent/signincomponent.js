@@ -58,7 +58,7 @@ export default {
         // User issigned in
         this.$cookies.set("TokenId", response["tokenId"]);
         this.$cookies.set("UserName", response["userName"])
-        this.$router.push('/');
+        this.$router.push('/signedInMessages');
       }
       else if(response["responseCode"] === 64)
       {

@@ -1,0 +1,19 @@
+.signedinmessagescomponent {
+    display: grid;
+    width: 100%;
+    min-height: 768px;
+    grid-template-columns: 384px 1fr;
+    border: 1px solid green;
+}
+
+.toolBox{
+    grid-column: 1/ 1;
+    width: 100%;
+    height: 512px;
+    border:6px solid black;
+    border-radius: 50px;
+    justify-self: center;
+    margin-top: 25%;
+    margin-bottom: 75%;
+    margin-left: 6px;
+}

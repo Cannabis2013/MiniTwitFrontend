@@ -1,6 +1,7 @@
 .userinformationcomponent {
     display: grid;
     grid-template-columns: auto 64px;
+    
     width: 264px;
 }
 

@@ -28,11 +28,11 @@ export default {
       axios({
         method : "post",
         url : apiHostUrl + "signUpUser",
-        data : {
-          localAdress : this.$cookies.get("LocalAddress"),
+        params : {
           userName : this.username,
           password : this.password,
-          userMail : this.username
+          userMail : this.username,
+          localAddress : this.$cookies.get("LocalAddress")
         },
         headers : {
           "Content-Type" : "application/json"
