@@ -20,7 +20,7 @@ export default {
   created() {
   },
   mounted () {
-    if(this.$cookies.get("tokenId") !== null)
+    if(this.$cookies.get("TokenId") !== null)
     {
       this.userLoggedIn = true;
       console.log("Something is wrong!");

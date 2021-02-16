@@ -1,5 +1,6 @@
 
 <section class="userinformationcomponent">
-  <h1>userinformationcomponent Component</h1>
+    <div class="textBox"> Welcome {{userName}}  <br> <span style="font-size: 9pt">IP: {{IPAddress}}</span></div>
+    <ActiveButton class="button" imageUrl="user.png" itemTitle="Sign out" target="signOut" v-on:click.native="handleSignOutClicked()"></ActiveButton>
 </section>
 

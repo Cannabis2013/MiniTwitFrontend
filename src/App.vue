@@ -9,7 +9,8 @@ export default {
     return {
       handleRecieveAddress : function(response)
       {
-        this.$cookies.set("localAddress",response.ip);
+        console.log(response["ip"]);
+        this.$cookies.set("LocalAddress",response.ip);
       }
       
     }
@@ -18,7 +19,6 @@ export default {
     MyHeaderComponent
   },
   mounted() {
-    
     axios({
       method : "get",
       url : "http://ipinfo.io/json"

@@ -28,10 +28,10 @@ export default {
         method : "post",
         url : apiHostUrl + "SignInUser",
         params : {
-          localAdress : this.$cookies.get("Localadress"),
-          username : this.username,
+          userName : this.username,
           password : this.password,
-          mail : this.username
+          userMail : this.username,
+          localAdress : this.$cookies.get("LocalAddress")
         }
       })
           .then(response => this.handleResponse(response.data))
@@ -51,15 +51,14 @@ export default {
           - 2 : user sign-in success
           - 64 : User doesn't exist
           - 129 : That means user exists but sign-in failed
-          - 1024 : Bad json argument
-              This typically occurs when clients send bad formatted json objects
+          - 1024 : Bad json argument - This typically occurs when clients send bad formatted json objects
        */
       if (response["responseCode"] === 2)
       {
-        // User is created and signed in
-        this.$cookies.set("tokenId", response.data.tokenId);
-        this.$cookies.set("Username", response.data.userName)
-        this.$router.push('home');
+        // User issigned in
+        this.$cookies.set("TokenId", response["tokenId"]);
+        this.$cookies.set("UserName", response["userName"])
+        this.$router.push('/');
       }
       else if(response["responseCode"] === 64)
       {

@@ -59,7 +59,7 @@ export default {
     if (response.responseCode === 18)
     {
       // User is created and signed in
-      this.$cookies.set("tokenId", response.tokenId);
+      this.$cookies.set("TokenId", response.tokenId);
       this.$cookies.set("UserName", response.userName)
       this.$router.push('home').then(r => console.log(r));
     }

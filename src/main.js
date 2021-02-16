@@ -10,6 +10,7 @@ import VueCookies from 'vue-cookies'
 Vue.use(VueRouter)
 Vue.use(VueCookies)
 
+
 const routes = [
   { 
     path: '/', component: Start
@@ -26,6 +27,8 @@ export const router = new VueRouter({
   base: '/',
   routes
 });
+
+Vue.$cookies.config('7d')
 
 Vue.$cookies.set('theme','default');
 Vue.$cookies.set('hover-time','1s');
