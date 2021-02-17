@@ -1,6 +1,7 @@
 <template src="./main.html"></template>
 <script>
 import MyHeaderComponent from "./components/headercomponent/index.vue"
+import LinkBar from "./components/linkbarcomponent/index.vue"
 import axios from "axios";
 
 export default {
@@ -16,7 +17,8 @@ export default {
     }
   },
   components: {
-    MyHeaderComponent
+    MyHeaderComponent,
+    LinkBar
   },
   mounted() {
     axios({
