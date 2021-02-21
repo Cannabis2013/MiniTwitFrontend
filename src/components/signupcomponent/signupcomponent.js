@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiHostUrl = "https://localhost:5001/MiniTwitIndex/"
+
 
 export default {
   name: 'signupcomponent',
@@ -27,7 +27,7 @@ export default {
       console.log("test2");
       axios({
         method : "post",
-        url : apiHostUrl + "signUpUser",
+        url : this.apiHostUrl + "signUpUser",
         params : {
           userName : this.username,
           password : this.password,
@@ -61,7 +61,7 @@ export default {
       // User is created and signed in
       this.$cookies.set("TokenId", response.tokenId);
       this.$cookies.set("UserName", response.userName)
-      this.$router.push('home').then(r => console.log(r));
+      this.$router.push('/').then(r => console.log(r));
     }
     // Handle invalid json arguments
     else if(response.responseCode === 1024)

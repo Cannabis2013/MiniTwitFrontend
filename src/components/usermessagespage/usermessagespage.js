@@ -1,10 +1,12 @@
 
 import MessageModel from "../messagecomponent/index.vue"
+import CreatePost from "../createpost/index.vue"
 
 export default {
   name: 'signedinmessagescomponent',
   components: {
-    MessageModel
+    MessageModel,
+    CreatePost
   },
   props: [],
   data () {

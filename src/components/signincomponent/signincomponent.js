@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const apiHostUrl = "https://localhost:5001/MiniTwitIndex/"
-
 export default {
   name: 'signincomponent',
   components: {},
@@ -26,7 +24,7 @@ export default {
     {
       axios({
         method : "post",
-        url : apiHostUrl + "SignInUser",
+        url : this.apiHostUrl + "SignInUser",
         params : {
           userName : this.username,
           password : this.password,
@@ -58,7 +56,7 @@ export default {
         // User issigned in
         this.$cookies.set("TokenId", response["tokenId"]);
         this.$cookies.set("UserName", response["userName"])
-        this.$router.push('/signedInMessages');
+        this.$router.push('/');
       }
       else if(response["responseCode"] === 64)
       {

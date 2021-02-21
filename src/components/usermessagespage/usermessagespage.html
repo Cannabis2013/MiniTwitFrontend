@@ -1,0 +1,13 @@
+
+<section class="signedinmessagescomponent">
+    <div class="toolDiv"></div>
+    <div class="messagesDiv">
+        <CreatePost style="width: 65%" y></CreatePost>
+        <MessageModel v-for="message in messages" 
+                      :key="message.author_id" 
+                      :author_name="message.author_name" 
+                      :text="message.text" 
+                      :pub_date="message.pub_date" style="width: 65%"></MessageModel>
+    </div>
+</section>
+

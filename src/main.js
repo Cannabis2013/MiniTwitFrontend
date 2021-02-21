@@ -6,15 +6,34 @@ import VueCookies from 'vue-cookies'
 import Start from "./components/startComponent/index.vue"
 import SignUp from "./components/signupcomponent/index.vue"
 import SignIn from "./components/signincomponent/index.vue"
-import SignedMessages from "./components/signedinmessagescomponent/index.vue"
+import SignedMessages from "./components/usermessagespage/index.vue"
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
 
 
+Vue.mixin({
+  data: function() {
+    return {
+      get apiHostUrl() {
+        return "https://localhost:5001/MiniTwitIndex/";
+      }
+    }
+  }
+})
+
 const routes = [
+  {path: '/', redirect: function()
+    {
+      // Redirect to appropriate page based on user signed in status
+      let tokenId = Vue.$cookies.get("TokenId");
+      if(tokenId === null)
+        return "/home";
+      else
+        return '/signedInMessages';
+    }},
   { 
-    path: '/', component: Start
+    path: '/home', component: Start
   },
   {
     path: '/signUp', component: SignUp
