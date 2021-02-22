@@ -1,6 +1,7 @@
 
-import MessageModel from "../messagecomponent/index.vue"
+import MessageModel from "../messagemodel/index.vue"
 import CreatePost from "../createpost/index.vue"
+import axios from "axios";
 
 export default {
   name: 'signedinmessagescomponent',
@@ -18,33 +19,39 @@ export default {
 
   },
   mounted () {
-
-    const aReplyToCannabis = {
-      author_name : "TechnoTonny",
-      text : "Er du fuld af peps, Cannabis2013?",
-      pub_date : "17-02-2021",
-      author_id : 2
-    };
+    this.requestMessagesFromBackend();
     
-    const anotherPostFromCannabis = {
-      author_name : "Cannabis2013",
-      text : "Slet ikke nogen friske på lidt 'ind og ud'?",
-      pub_date : "16-02-2021",
-      author_id : 1
-    };
-
-    const aPostFromCannabis = {
-      author_name : "Cannabis2013",
-      text : "Jeg er total liderlig i dag. Nogen friske på lidt hygge?",
-      pub_date : "16-02-2021",
-      author_id : 1
-    };
-    this.messages.push(aReplyToCannabis);
-    this.messages.push(anotherPostFromCannabis);
-    this.messages.push(aPostFromCannabis);
   },
   methods: {
-
+    requestMessagesFromBackend : function()
+    {
+      axios({
+        method : "get",
+        url : this.apiHostUrl + "GetAssociatedMessages",
+        params : {
+          tokenId : this.$cookies.get("TokenId"),
+          tokenAddress : this.$cookies.get("LocalAddress")
+        }
+      }).then(response => this.handleResponseFromBackend(response.data))
+          .catch(response => console.log(response));
+    },
+    handleResponseFromBackend : function(response)
+    {
+      if(response.responseCode === 1)
+      {
+        this.$cookies.remove("TokenId");
+        return;
+      }
+      console.log(response);
+      
+      this.messages = response.payLoad;
+      console.log(this.messages);
+    },
+    handleClickEvent : function()
+    {
+      console.log("Called");
+      this.requestMessagesFromBackend();
+    }
   }
 }
 

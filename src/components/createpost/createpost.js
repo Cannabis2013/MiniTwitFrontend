@@ -20,8 +20,8 @@ export default {
     handleShare : function ()
     {
       this.isTransmitting = true;
-      var tId = this.$cookies.get("TokenId");
-      var localAddress = this.$cookies.get("LocalAddress");
+      const tId = this.$cookies.get("TokenId");
+      const localAddress = this.$cookies.get("LocalAddress");
       axios({
         method : "post",
         url : this.apiHostUrl + "PostMessage",
@@ -46,6 +46,7 @@ export default {
       else if(response["responseCode"] === 256)
       {
         this.userText = "";
+        this.$emit("click");
       }
     }
   }

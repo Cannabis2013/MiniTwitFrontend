@@ -22,6 +22,12 @@
     text-decoration: none;
     color: black;
 }
+.navBarDiv{
+    grid-column: 4 / 4;
+    margin-top:auto;
+    height: 51px;
+}
+
 .centerItem
 {
     margin-left: auto;

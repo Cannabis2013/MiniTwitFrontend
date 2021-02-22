@@ -6,11 +6,10 @@
             {{author_name}}
         </div>
         <div class="dateContainer">
-            {{pub_date}}
+            {{pub_date}} {{pub_time}}
         </div>
     </div>
-    <div class="messageContentDiv leftPadding">
-        {{text}}
+    <div class="messageContentDiv leftPadding" v-html="formattedText">
     </div>
     <div class="messageFooterDiv leftPadding">
     </div>
