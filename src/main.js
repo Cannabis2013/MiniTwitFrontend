@@ -11,7 +11,6 @@ import SignedMessages from "./components/usermessagespage/index.vue"
 Vue.use(VueRouter)
 Vue.use(VueCookies)
 
-
 Vue.mixin({
   data: function() {
     return {

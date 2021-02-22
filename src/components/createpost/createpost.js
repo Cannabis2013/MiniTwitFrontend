@@ -40,7 +40,9 @@ export default {
       this.isTransmitting = false;
       if(response["responseCode"] === 1)
       {
+        this.$cookies.remove("UserName");
         this.$cookies.remove("TokenId");
+        this.$router.push("/");
         return 0;
       }
       else if(response["responseCode"] === 256)
