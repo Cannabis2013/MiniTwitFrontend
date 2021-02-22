@@ -1,5 +1,5 @@
-import ActiveButton from "../activebuttoncomponent/index.vue"
-import UserInformation from "../userinformationcomponent/index.vue"
+import ActiveButton from "../linkbutton/index.vue"
+import UserInformation from "../userinformation/index.vue"
 
 export default {
   name: 'header-nav-bar',

@@ -1,4 +1,4 @@
-import ActiveButton from "../activebuttoncomponent/index.vue";
+import ActiveButton from "../linkbutton/index.vue";
 
 export default {
   name: 'linkbarcomponent',

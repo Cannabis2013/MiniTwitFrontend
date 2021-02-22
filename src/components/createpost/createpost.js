@@ -38,11 +38,15 @@ export default {
     {
       console.log(response);
       this.isTransmitting = false;
-      if(response.responseCode === 1)
+      if(response["responseCode"] === 1)
       {
+        this.$cookies.remove("TokenId");
         return 0;
       }
-      this.userText = "";
+      else if(response["responseCode"] === 256)
+      {
+        this.userText = "";
+      }
     }
   }
 }

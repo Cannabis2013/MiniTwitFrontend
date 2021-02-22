@@ -1,4 +1,4 @@
-import NavBar from "../headerNavBar/index.vue"
+import NavBar from "../loginbar/index.vue"
 export default {
   name: 'headercomponent',
   components: {

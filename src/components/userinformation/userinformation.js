@@ -1,4 +1,4 @@
-import ActiveButton from "../activebuttoncomponent/index.vue"
+import ActiveButton from "../linkbutton/index.vue"
 import axios from "axios";
 
 const apiHostUrl = "https://localhost:5001/MiniTwitIndex/"
