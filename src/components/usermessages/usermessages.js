@@ -1,5 +1,5 @@
 
-import MessageModel from "../messagemodel/index.vue"
+import MessageModel from "../message/index.vue"
 import CreatePost from "../createpost/index.vue"
 import axios from "axios";
 import {EventBus} from "@/eventBus";
@@ -44,10 +44,7 @@ export default {
       if(response.responseCode === 1)
       {
         // Backend signals that user is not signed in
-        this.$cookies.remove("TokenId");
-        this.$cookies.remove("UserName");
-        EventBus.$emit("UserStatusChanged",false);
-        this.$router.push("/");
+        EventBus.$emit("UserSignOut",response)
         return;
       }
       console.log(response);

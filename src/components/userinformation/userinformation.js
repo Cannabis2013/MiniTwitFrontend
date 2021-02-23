@@ -30,16 +30,8 @@ export default {
           tokenAddress : this.$cookies.get("LocalAddress")
         }
       })
-          .then(response => this.handleResponse(response.data))
-          .catch(response => this.handleResponse(response.data));
-    },
-    handleResponse : function (response)
-    {
-      this.$cookies.remove("UserName");
-      this.$cookies.remove("TokenId");
-      this.$router.push("/");
-      console.log("handleResponse: " +  response);
-      EventBus.$emit("UserStatusChanged",false);
+          .then(response => EventBus.$emit("UserSignOut",response))
+          .catch(response => EventBus.$emit("UserSignOut",response));
     }
   },
   mounted () {

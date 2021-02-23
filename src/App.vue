@@ -1,19 +1,13 @@
 <template src="./main.html"></template>
 <script>
 import MyHeaderComponent from "./components/header/index.vue"
-import LinkBar from "./components/linkbarcomponent/index.vue"
+import LinkBar from "./components/linkbar/index.vue"
 import axios from "axios";
 
 export default {
   name: 'App',
   data() {
     return {
-      handleRecieveAddress : function(response)
-      {
-        console.log(response["ip"]);
-        this.$cookies.set("LocalAddress",response.ip);
-      }
-      
     }
   },
   components: {
@@ -25,9 +19,19 @@ export default {
       method : "get",
       url : "https://ipinfo.io/json"
     }).then(response => this.handleRecieveAddress(response.data))
-        .catch();
-    if(this.$cookies.get("TokenId") !== null)
-      this.$router.push("/signedInMessages");
+        .catch(response => this.handleNoResponse(response));
+  },
+  methods: {
+    handleRecieveAddress : function(response)
+    {
+      console.log(response["ip"]);
+      this.$cookies.set("LocalAddress",response.ip);
+    },
+    handleNoResponse : function(response)
+    {
+      console.log(response);
+      this.$cookies.set("LocalAddress","0.0.0.0");
+    }
   }
 }
 </script>

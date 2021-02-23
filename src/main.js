@@ -3,10 +3,10 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueCookies from 'vue-cookies'
 // Custom components
-import Start from "./components/startComponent/index.vue"
-import SignUp from "./components/signupcomponent/index.vue"
-import SignIn from "./components/signincomponent/index.vue"
-import SignedMessages from "./components/usermessagespage/index.vue"
+import Start from "./components/start/index.vue"
+import SignUp from "./components/signup/index.vue"
+import SignIn from "./components/signin/index.vue"
+import SignedMessages from "./components/usermessages/index.vue"
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)

@@ -30,7 +30,7 @@ export default {
           userName : this.username,
           password : this.password,
           userMail : this.username,
-          localAdress : this.$cookies.get("LocalAddress")
+          localAddress : this.$cookies.get("LocalAddress")
         }
       })
           .then(response => this.handleResponse(response.data))
