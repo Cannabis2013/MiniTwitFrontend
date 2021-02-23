@@ -6,7 +6,7 @@ function handleUserSignOut(response)
 {
     Vue.$cookies.remove("UserName");
     Vue.$cookies.remove("TokenId");
-    router.push("/");
+    router.push("/").then(response => console.log(response));
     console.log("handleResponse: " +  response);
     EventBus.$emit("UserStatusChanged",false);
 }
