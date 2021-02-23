@@ -30,7 +30,8 @@ export default {
         params : {
           tokenId : tId,
           tokenAddress : localAddress,
-          text : this.userText
+          text : this.userText,
+          accessMode : this.selectedAccessMode
         }
       })
           .then(response => this.handleResponse(response.data))
