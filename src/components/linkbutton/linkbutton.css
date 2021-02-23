@@ -11,7 +11,7 @@
 }
 
 .itemBody:hover{
-    background-color: darkblue;
+    opacity: 0.75;
 }
 
 .imageContainer

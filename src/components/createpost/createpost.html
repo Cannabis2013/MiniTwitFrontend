@@ -4,6 +4,11 @@
         <div id="headLineDiv">
             <h1 id="headLine">Share a thought</h1>
         </div>
+        <select id="AccessSelector" v-model="selectedAccessMode">
+            <option value="2">Public</option>
+            <option value="4">Friends only</option>
+            <option value="8">Only me</option>
+        </select>
         <button class="submitButton" v-on:click="handleShare">Share</button>
     </div>
     <textarea class="textDiv" placeholder="Write a thought here" v-model="userText"></textarea>

@@ -8,7 +8,8 @@ export default {
   data () {
     return {
       userText : "",
-      isTransmitting : false
+      isTransmitting : false,
+      selectedAccessMode : "4"
     }
   },
   computed: {
