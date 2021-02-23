@@ -1,5 +1,9 @@
 import LoginBar from "../loginbar/index.vue"
 import UserInformation from "../userinformation/index.vue"
+import {EventBus} from "@/eventBus";
+
+
+
 export default {
   name: 'headercomponent',
   components: {
@@ -17,6 +21,8 @@ export default {
   mounted() {
     if(this.$cookies.get("TokenId") !== null)
         this.userLoggedIn = true;
+
+    EventBus.$on("UserStatusChanged",arg => this.userLoggedIn = arg);
   },
   methods: {
   }

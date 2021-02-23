@@ -2,6 +2,7 @@
 import MessageModel from "../messagemodel/index.vue"
 import CreatePost from "../createpost/index.vue"
 import axios from "axios";
+import {EventBus} from "@/eventBus";
 
 export default {
   name: 'signedinmessagescomponent',
@@ -19,6 +20,9 @@ export default {
 
   },
   mounted () {
+    var tokenId = this.$cookies.get("TokenId");
+    if(tokenId === null)
+      this.$router.push("/");
     this.requestMessagesFromBackend();
     
   },
@@ -39,7 +43,11 @@ export default {
     {
       if(response.responseCode === 1)
       {
+        // Backend signals that user is not signed in
         this.$cookies.remove("TokenId");
+        this.$cookies.remove("UserName");
+        EventBus.$emit("UserStatusChanged",false);
+        this.$router.push("/");
         return;
       }
       console.log(response);

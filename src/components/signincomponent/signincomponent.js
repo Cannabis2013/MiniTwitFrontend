@@ -1,4 +1,5 @@
 import axios from "axios";
+import {EventBus} from "@/eventBus";
 
 export default {
   name: 'signincomponent',
@@ -53,9 +54,10 @@ export default {
        */
       if (response["responseCode"] === 2)
       {
-        // User issigned in
+        // User is signed in
         this.$cookies.set("TokenId", response["tokenId"]);
-        this.$cookies.set("UserName", response["userName"])
+        this.$cookies.set("UserName", response["userName"]);
+        EventBus.$emit("UserStatusChanged",true);
         this.$router.push('/');
       }
       else if(response["responseCode"] === 64)

@@ -22,7 +22,8 @@ Vue.mixin({
 })
 
 const routes = [
-  {path: '/', redirect: function()
+  {
+    path: '/', redirect: function()
     {
       // Redirect to appropriate page based on user signed in status
       let tokenId = Vue.$cookies.get("TokenId");
@@ -30,7 +31,8 @@ const routes = [
         return "/home";
       else
         return '/signedInMessages';
-    }},
+    }
+  },
   { 
     path: '/home', component: Start
   },
@@ -55,7 +57,7 @@ Vue.$cookies.config('7d')
 Vue.$cookies.set('theme','default');
 Vue.$cookies.set('hover-time','1s');
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,

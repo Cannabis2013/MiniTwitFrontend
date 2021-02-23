@@ -1,5 +1,6 @@
 import ActiveButton from "../linkbutton/index.vue"
 import axios from "axios";
+import {EventBus} from "@/eventBus";
 
 const apiHostUrl = "https://localhost:5001/MiniTwitIndex/"
 
@@ -38,6 +39,7 @@ export default {
       this.$cookies.remove("TokenId");
       this.$router.push("/");
       console.log("handleResponse: " +  response);
+      EventBus.$emit("UserStatusChanged",false);
     }
   },
   mounted () {

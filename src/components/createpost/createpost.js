@@ -1,4 +1,5 @@
 import axios from "axios";
+import {EventBus} from "@/eventBus";
 
 export default {
   name: 'createpost',
@@ -40,8 +41,10 @@ export default {
       this.isTransmitting = false;
       if(response["responseCode"] === 1)
       {
-        this.$cookies.remove("UserName");
+        // Backend signals that user is not signed in
         this.$cookies.remove("TokenId");
+        this.$cookies.remove("UserName");
+        EventBus.$emit("UserStatusChanged",false);
         this.$router.push("/");
         return 0;
       }

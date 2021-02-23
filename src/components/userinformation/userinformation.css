@@ -1,11 +1,12 @@
 .userinformationcomponent {
     display: grid;
-    grid-template-columns: 4px auto 64px;
+    grid-template-columns: 4px auto 51px;
     grid-template-rows: 4px auto 1fr 9px;
-    width: 264px;
     height: 51px;
     background-color: saddlebrown;
     overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .UserTextBox

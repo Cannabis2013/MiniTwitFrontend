@@ -1,4 +1,5 @@
 import axios from "axios";
+import {EventBus} from "@/eventBus";
 
 
 
@@ -60,7 +61,8 @@ export default {
     {
       // User is created and signed in
       this.$cookies.set("TokenId", response.tokenId);
-      this.$cookies.set("UserName", response.userName)
+      this.$cookies.set("UserName", response.userName);
+      EventBus.$emit("UserStatusChanged",true);
       this.$router.push('/').then(r => console.log(r));
     }
     // Handle invalid json arguments

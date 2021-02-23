@@ -24,8 +24,7 @@ export default {
     axios({
       method : "get",
       url : "https://ipinfo.io/json"
-    })
-        .then(response => this.handleRecieveAddress(response.data))
+    }).then(response => this.handleRecieveAddress(response.data))
         .catch();
     if(this.$cookies.get("TokenId") !== null)
       this.$router.push("/signedInMessages");
