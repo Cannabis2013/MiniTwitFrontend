@@ -2,16 +2,25 @@
 <section class="messagecomponent">
     <div class="messageHeaderDiv">
         <img src="../../assets/thought.png" alt="Not found" class="messageLogo">
-        <div class="nameContainer">
-            {{author_name}}
+        <div class="metaDiv">
+            <div class="nameContainer">
+                {{author_name}}
+            </div>
         </div>
-        <div class="dateContainer">
-            {{pub_date}} {{pub_time}}
+        <div class="actionDiv">
+            <div id="accesDiv">
+                <p id="accesContentDiv">
+                    {{translatedAccessMode}}
+                </p>
+            </div>
+            <div class="dateDiv">
+                <div class="dateContentDiv">
+                    {{pub_date}} {{pub_time}}
+                </div>
+            </div>
         </div>
     </div>
     <div class="messageContentDiv leftPadding" v-html="formattedText">
-    </div>
-    <div class="messageFooterDiv leftPadding">
     </div>
 </section>
 

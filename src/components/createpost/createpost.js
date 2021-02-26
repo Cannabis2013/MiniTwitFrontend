@@ -31,7 +31,7 @@ export default {
           tokenId : tId,
           tokenAddress : localAddress,
           text : this.userText,
-          accessMode : this.selectedAccessMode
+          access : this.selectedAccessMode
         }
       })
           .then(response => this.handleResponse(response.data))
@@ -58,5 +58,3 @@ export default {
     }
   }
 }
-
-

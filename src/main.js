@@ -6,7 +6,7 @@ import VueCookies from 'vue-cookies'
 import Start from "./components/start/index.vue"
 import SignUp from "./components/signup/index.vue"
 import SignIn from "./components/signin/index.vue"
-import SignedMessages from "./components/usermessages/index.vue"
+import UserMessages from "./components/usermessages/index.vue"
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -30,7 +30,7 @@ const routes = [
       if(tokenId === null)
         return "/home";
       else
-        return '/signedInMessages';
+        return '/userMessages';
     }
   },
   { 
@@ -43,7 +43,7 @@ const routes = [
     path: '/signIn', component: SignIn
   },
   {
-    path: '/signedInMessages', component: SignedMessages
+    path: '/userMessages', component: UserMessages
   }
 ]
 

@@ -2,19 +2,27 @@
     display: grid;
     width: 100%;
     min-height: 768px;
-    grid-template-columns: 384px 1fr;
+    grid-template-columns: 512px 1fr;
 }
 
 .toolDiv{
     grid-column: 1/ 1;
-    width: 90%;
+    width: 95%;
     height: 512px;
     border:2px solid black;
     border-radius: 10px;
     justify-self: center;
     margin-top: 64px;
     margin-left: 6px;
+    margin-bottom: auto;
     background-color: rosybrown;
+}
+.toolDivContent
+{
+    display: grid;
+    grid-auto-flow: row;
+    font-size: 24pt;
+    padding: 12px;
 }
 
 .messagesDiv{

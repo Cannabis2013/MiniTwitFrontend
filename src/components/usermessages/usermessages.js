@@ -20,11 +20,9 @@ export default {
 
   },
   mounted () {
-    var tokenId = this.$cookies.get("TokenId");
-    if(tokenId === null)
+    if(this.$cookies.get("TokenId") === null)
       this.$router.push("/");
     this.requestMessagesFromBackend();
-    
   },
   methods: {
     requestMessagesFromBackend : function()
@@ -37,20 +35,25 @@ export default {
           tokenAddress : this.$cookies.get("LocalAddress")
         }
       }).then(response => this.handleResponseFromBackend(response.data))
-          .catch(response => console.log(response));
+          .catch(response => this.handleNoResponseFromBackend(response));
     },
     handleResponseFromBackend : function(response)
     {
       if(response.responseCode === 1)
       {
         // Backend signals that user is not signed in
-        EventBus.$emit("UserSignOut",response)
+        EventBus.$emit("UserSignOut",response);
         return;
       }
       console.log(response);
       
       this.messages = response.payLoad;
       console.log(this.messages);
+    },
+    handleNoResponseFromBackend : function(response)
+    {
+      console.log(response);
+      EventBus.$emit("UserSignOut",response);
     },
     handleClickEvent : function()
     {
