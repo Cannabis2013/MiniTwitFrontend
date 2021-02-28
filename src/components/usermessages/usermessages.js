@@ -13,11 +13,21 @@ export default {
   props: [],
   data () {
     return {
-      messages: []
+      messages: [],
+      metaInfo: {}
     }
   },
   computed: {
-
+    formatNumberOfFollowers : function()
+    {
+      let c = this.metaInfo.numberOfFollowers;
+      if(c < 5)
+        return c + " (Loser)";
+      else if(c >= 5 && c < 10)
+        return c + " (Go get some more friends)"
+      else
+        return c + " (Wiseguy)"
+    }
   },
   mounted () {
     if(this.$cookies.get("TokenId") === null)
@@ -46,8 +56,8 @@ export default {
         return;
       }
       console.log(response);
-      
       this.messages = response.payLoad;
+      this.metaInfo = response.userMeta;
       console.log(this.messages);
     },
     handleNoResponseFromBackend : function(response)
@@ -57,7 +67,6 @@ export default {
     },
     handleClickEvent : function()
     {
-      console.log("Called");
       this.requestMessagesFromBackend();
     }
   }

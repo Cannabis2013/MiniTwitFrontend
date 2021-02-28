@@ -21,7 +21,7 @@
 {
     display: grid;
     grid-auto-flow: row;
-    font-size: 24pt;
+    font-size: 18pt;
     padding: 12px;
 }
 
