@@ -1,11 +1,12 @@
 import axios from "axios";
 import {EventBus} from "@/eventBus";
-
-
+import TitleBox from "../textbox/index.vue"
 
 export default {
   name: 'signupcomponent',
-  components: {},
+  components: {
+    TitleBox
+  },
   props: [],
   data () {
     return {
@@ -20,19 +21,33 @@ export default {
   {
     handleSubmit : function() 
     {
-      console.log("test1");
-      this.sendSignUpRequest();
+      let u = this.username;
+      let p = this.password;
+      if(this.verifyInput(u,p))
+        this.sendSignInRequest(u,p);
+      else
+        this.errorMessage = "Please fill in all fields!";
     },
-    sendSignUpRequest : function()
+    verifyInput : function(un, pw)
     {
-      console.log("test2");
+      /*
+        Peform validety check of user entered input.
+        
+        Please notice, that this is very dependent on the contract that exists between the exchanging parties.
+        
+        If there are any other demands with regard to credentials format, implement here.
+       */
+      return un !== "" && pw !== "";
+    },
+    sendSignUpRequest : function(un,pw)
+    {
       axios({
         method : "post",
         url : this.apiHostUrl + "signUpUser",
         params : {
-          userName : this.username,
-          password : this.password,
-          userMail : this.username,
+          userName : un,
+          password : pw,
+          userMail : un,
           localAddress : this.$cookies.get("LocalAddress")
         },
         headers : {

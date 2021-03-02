@@ -34,14 +34,7 @@
 }
 .nameContainer
 {
-    font-size: 16pt;
-    border-radius: 10px;
-    padding: 4px;
-    color:white;
-    background-color: black;
     justify-self: start;
-    margin-right: auto;
-    margin-bottom: auto;
 }
 .actionDiv
 {

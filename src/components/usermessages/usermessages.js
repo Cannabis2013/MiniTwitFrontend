@@ -1,4 +1,3 @@
-
 import MessageModel from "../message/index.vue"
 import CreatePost from "../createpost/index.vue"
 import axios from "axios";
@@ -14,7 +13,8 @@ export default {
   data () {
     return {
       messages: [],
-      metaInfo: {}
+      metaInfo: {},
+      userName: ""
     }
   },
   computed: {
@@ -32,6 +32,7 @@ export default {
   mounted () {
     if(this.$cookies.get("TokenId") === null)
       this.$router.push("/");
+    this.userName = this.$cookies.get("UserName");
     this.requestMessagesFromBackend();
   },
   methods: {

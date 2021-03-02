@@ -1,39 +1,57 @@
 import axios from "axios";
 import {EventBus} from "@/eventBus";
+import TitleBox from "../textbox/index.vue"
 
 export default {
   name: 'signincomponent',
-  components: {},
+  components: {
+    TitleBox
+  },
   props: [],
   data () {
     return {
       username: "",
       password: "",
-      errorMessage : ""
+      errorMessage : "",
+      pendingForReply : false
     }
   },
   mounted () {
   },
   methods: {
-    handleSubmit : function() {
-      if(this.username !== "" && this.password !== "")
-        this.sendSignInRequest();
+    handleSubmit : function() 
+    {
+      let u = this.username;
+      let p = this.password;
+      if(this.verifyInput(u,p))
+        this.sendSignInRequest(u,p);
       else
         this.errorMessage = "Please fill in all fields!";
-      },
-    sendSignInRequest : function()
+    },
+    verifyInput : function(userName, password)
     {
+      /*
+        Peform validety check of user entered input.
+        
+        Please notice, that this is very dependent on the contract that exists between the exchanging parties.
+        
+        If there are any other demands with regard to credentials format, implement here.
+       */
+      return userName !== "" && password !== "";
+    },
+    sendSignInRequest : function(un,pw)
+    {
+      this.pendingForReply = true;
       axios({
         method : "post",
         url : this.apiHostUrl + "SignInUser",
         params : {
-          userName : this.username,
-          password : this.password,
-          userMail : this.username,
+          userName : un,
+          password : pw,
+          userMail : un,
           localAddress : this.$cookies.get("LocalAddress")
         }
-      })
-          .then(response => this.handleResponse(response.data))
+      }).then(response => this.handleResponse(response.data))
           .catch(data => this.handleNoResponse(data));
     },
     handleResponse : function(response)
@@ -60,13 +78,15 @@ export default {
         EventBus.$emit("UserStatusChanged",true);
         this.$router.push('/');
       }
+        // User doesn't exist
       else if(response["responseCode"] === 64)
       {
-        // User doesn't exist
         this.errorMessage = "User with provided credentials doesn't exist.";
       }
+      this.pendingForReply = false;
     },
     handleNoResponse : function(response){
+      this.pendingForReply = false;
       this.errorMessage = "No response from serve!";
       console.log(response);
     }

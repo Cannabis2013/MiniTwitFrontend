@@ -1,7 +1,11 @@
+import TextBox from "../textbox/index.vue"
+
 
 export default {
   name: 'messagecomponent',
-  components: {},
+  components: {
+      TextBox
+  },
   props: [
       "author_name",
       "text",

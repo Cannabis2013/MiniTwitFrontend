@@ -1,0 +1,17 @@
+
+.noMargins{
+    margin:0;
+}
+.textCenter
+{
+    text-align: center;
+}
+.center
+{
+    margin: auto;
+}
+
+.upperLeft
+{
+    margin: 0 auto auto 0;
+}

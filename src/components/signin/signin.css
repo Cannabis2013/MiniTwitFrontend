@@ -1,28 +1,36 @@
 .signupcomponent {
     display: grid;
     grid-template-columns: 128px 256px;
-    grid-template-rows: 64px auto 32px;
+    grid-template-rows: 64px auto 1fr;
     margin: 10px auto 0;
     width: 408px;
     background-color: saddlebrown;
     color:white;
     padding: 12px;
-    border-radius: 5px;
+    border-radius: 10px;
     overflow: hidden;
 }
-
 .titleBox
 {
-    grid-column: 1 / span 2;
+    grid-column: 1 / 1;
     grid-row: 1 / 1;
-    margin: 0;
     overflow: hidden;
 }
 .welcomeBox
 {
-    grid-column: 1 / 2;
+    grid-column: 1 / 1;
     grid-row: 2 / 2;
     font-size: 11pt;
+}
+.loadingGif
+{
+    display: block;
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+    width: 48px;
+    height: 48px;
+    justify-self: center;
+    overflow: hidden;
 }
 .inputSections
 {
