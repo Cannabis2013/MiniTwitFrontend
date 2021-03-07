@@ -1,14 +1,15 @@
 import LoginBar from "../loginbar/index.vue"
-import UserInformation from "../userinformation/index.vue"
+import UserInformation from "../userinfopanel/index.vue"
 import {EventBus} from "@/eventBus";
-
+import LinkBar from "../linkbar/index.vue"
 
 
 export default {
   name: 'headercomponent',
   components: {
     LoginBar,
-    UserInformation
+    UserInformation,
+    LinkBar
   },
   props: [],
   data () {

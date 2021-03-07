@@ -24,6 +24,14 @@
     color: white;
 }
 
+.userImage
+{
+    grid-column: 1 / 1;
+    width: 384px;
+    height: 384px;
+    justify-self: center;
+}
+
 .messagesDiv{
     display: grid;
     grid-column: 2 / 2;

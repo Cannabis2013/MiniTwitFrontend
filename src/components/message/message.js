@@ -1,15 +1,19 @@
 import TextBox from "../textbox/index.vue"
-
+import DropDownMenu from "../dropdownmenu/index.vue"
+import CustomMenuItem from "../menuitem/index.vue"
 
 export default {
   name: 'messagecomponent',
   components: {
-      TextBox
+      TextBox,
+      DropDownMenu,
+      CustomMenuItem
   },
   props: [
       "author_name",
       "text",
       "pub_date",
+      "author_id",
       "pub_time",
       "access",
       "isUsersOwnPost"
@@ -41,7 +45,11 @@ export default {
 
   },
   methods: {
-      
+      isUsersOwnPost : function(author_id)
+      {
+          let id = this.$cookies.get("TokenId");
+          return author_id === id;
+      }
   }
 }
 

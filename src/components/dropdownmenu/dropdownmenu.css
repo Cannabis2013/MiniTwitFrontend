@@ -1,0 +1,44 @@
+.dropdowndiv {
+    display: grid;
+    height: 24px;
+}
+.dropdownbuttondiv
+{
+    display: grid;
+    margin-left: auto;
+    margin-right: 0;
+    grid-template-rows: auto 24px auto;
+    grid-template-columns: auto 24px auto;
+}
+.dropdownbutton {
+    grid-column: 2 / 2;
+    grid-row:  2 / 2;
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+    font-size: 16pt;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+@keyframes popup {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+.dropdownmenu
+{
+    display: none;
+    grid-auto-flow: row;
+    position: absolute;
+    z-index: 10;
+    width: 256px;
+    padding: 9px;
+    background-color: lightgray;
+    border-radius: 10px;
+    border:1px solid black;
+    animation-name: popup;
+    animation-duration: 500ms;
+    overflow: hidden;
+}

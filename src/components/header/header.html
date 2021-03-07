@@ -1,6 +1,9 @@
 
 <div class="headercomponent" >
-    <router-link class="headertitle centerItem" to="/">MiniTwit</router-link>
+    <LinkBar class="navBar"></LinkBar>
+    <div class="headerContainer">
+        <router-link class="headertitle centerItem" to="/">freeThoughts</router-link>
+    </div>
     <div class="navBarDiv">
         <UserInformation v-if="userLoggedIn" class="navBarDiv"></UserInformation>
         <LoginBar v-else class="navBarDiv centerItem"></LoginBar>

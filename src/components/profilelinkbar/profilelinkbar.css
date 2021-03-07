@@ -1,0 +1,9 @@
+.profilelinkbar {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto;
+    margin: 0 auto;
+    background-color: saddlebrown;
+    border-radius: 10px;
+    overflow: hidden;
+}

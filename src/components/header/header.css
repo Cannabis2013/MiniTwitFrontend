@@ -1,18 +1,32 @@
 .headercomponent {
     display: grid;
     grid-template-columns: 64px 264px auto 264px 64px;
-    grid-template-rows: 96px;
-    width: 1280px;
+    grid-template-rows: auto;
+    width: 100%;
     border-bottom: 12px solid saddlebrown;
     color: black;
     margin-left: auto;
     margin-right: auto;
 }
+.navBar{
+    grid-column: 2 / 2;
+    margin-top:auto;
+    justify-self: center;
+}
+.headerContainer
+{
+    display: grid;
+    grid-row: 1 / 1;
+    grid-column: 3 / 3;
+    margin-top: auto;
+    margin-bottom: 0;
+    height: 96px;
+}
 .headertitle
 {
-    grid-column: 3 / 3;
-    font-size: 96px;
+    justify-self: center;
     margin: 0;
+    font-size: 80pt;
     text-align: center;
     color: white;
 }
@@ -25,12 +39,12 @@
 .navBarDiv{
     grid-column: 4 / 4;
     margin-top:auto;
-    height: 51px;
     justify-self: center;
 }
 
 .centerItem
 {
+    grid-row: 1 / 1;
     margin-left: auto;
     margin-right: auto;
 }

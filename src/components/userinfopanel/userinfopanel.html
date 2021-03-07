@@ -1,0 +1,7 @@
+
+<section class="userinformationcomponent">
+    <LinkText class="UserTextBox" :text="this.userName" radius="10px" target="/userProfile"></LinkText>
+    <div class="IpTextBox"> IP: {{IPAddress}} </div>
+    <ActiveButton class="button" imageUrl="user2.png" itemTitle="Sign out" imageSize="32px" fontSize="9pt" target="" v-on:click.native="handleSignOutClicked()"></ActiveButton>
+</section>
+

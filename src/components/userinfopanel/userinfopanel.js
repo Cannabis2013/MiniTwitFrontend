@@ -1,16 +1,17 @@
 import ActiveButton from "../linkbutton/index.vue"
-import axios from "axios";
-import {EventBus} from "@/eventBus";
+import axios from "axios"
+import {EventBus} from "@/eventBus"
+import LinkText from "../linktextbox/index.vue"
 
 const apiHostUrl = "https://localhost:5001/MiniTwitIndex/"
 
 export default {
   name: 'userinformationcomponent',
   components: {
-    ActiveButton
+    ActiveButton,
+    LinkText
   },
   props: [
-      
   ],
   data () {
     return {

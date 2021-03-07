@@ -1,8 +1,6 @@
 .navBarBody {
     display: grid;
     margin-top: auto;
-    height: 51px;
-    width: 102px;
     grid-auto-flow: column;
     overflow: hidden;
     border-top-left-radius: 5px;
@@ -10,5 +8,4 @@
 }
 .linkButton
 {
-    width: 51px;
 }

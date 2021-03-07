@@ -1,8 +1,7 @@
 .userinformationcomponent {
     display: grid;
-    grid-template-columns: 4px auto 51px;
+    grid-template-columns: 4px auto 80px;
     grid-template-rows: 4px auto 1fr 9px;
-    height: 51px;
     background-color: saddlebrown;
     overflow: hidden;
     margin-right: auto;
@@ -14,10 +13,6 @@
     grid-column: 2 / 2;
     grid-row:  2 / 2;
     margin-right: auto;
-    color: white;
-    font-size: 13pt;
-    background-color: black;
-    border-radius: 5px;
 }
 
 .IpTextBox

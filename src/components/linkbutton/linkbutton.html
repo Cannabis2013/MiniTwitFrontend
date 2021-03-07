@@ -1,10 +1,10 @@
 
 <section class="itemBody">
-    <router-link class="itemLinkBody" :to="this.target">
-        <div class="imageContainer">
-            <img :src="require('../../assets/' + imageUrl)"  alt="" class="itemImage">
+    <router-link class="itemLinkBody" :to="this.target" :style="{'background-color' : this.getBackgroundColor}">
+        <div class="imageContainer" v-if="this.showImage">
+            <img :src="require('../../assets/' + imageUrl)"  alt="" class="itemImage" :style="{'width' : this.getImageSize, 'height' : this.getImageSize}">
         </div>
-        <p class="itemDescription"> {{itemTitle}} </p>
+        <p class="itemDescription" :style="{'color' : this.getFontColor, 'font-size' : this.getFontSize}"> {{itemTitle}} </p>
     </router-link>
 </section>
 

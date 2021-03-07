@@ -1,0 +1,23 @@
+.menuitem {
+    display: grid;
+    grid-template-columns: 9px 24px auto 9px;
+    padding:9px;
+    border-radius: 5px;
+}
+.menuitem:hover
+{
+    background-color: gray;
+}
+.menuitemimage
+{
+    grid-column: 2 / 2;
+    width: 20px;
+    height: 20px;
+}
+#menuitemtext
+{
+    grid-column: 3 / 3;
+    margin: 0;
+    padding-left: 9px;
+    font-size: 13pt;
+}

@@ -4,9 +4,11 @@
         <div class="toolDivContent">
             Welcome {{this.userName}}.<br><br>
             <p style="margin: 0">Number of followers: {{this.formatNumberOfFollowers}}</p>
-            <p style="margin: 0">Number of posts: {{ metaInfo.numberOfPosts }}</p>
+            <p style="margin: 0">Number of thoughts shared: {{ metaInfo.numberOfPosts }}</p>
+            <img class="userImage" :src="require('../../assets/KKK.png')">
         </div>
     </div>
+    
     <div class="messagesDiv">
         <CreatePost style="width: 65%" v-on:click="handleClickEvent"></CreatePost>
         <MessageModel v-for="message in messages" 
@@ -15,6 +17,7 @@
                       :text="message.text" 
                       :pub_date="message.pub_date" 
                       :pub_time="message.pub_time"
+                      :author_id="message.author_id"
                       :access="message.access" style="width: 65%"></MessageModel>
     </div>
 </section>

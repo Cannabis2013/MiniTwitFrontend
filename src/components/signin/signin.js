@@ -17,6 +17,7 @@ export default {
     }
   },
   mounted () {
+    console.log("Signin mounted!");
   },
   methods: {
     handleSubmit : function() 

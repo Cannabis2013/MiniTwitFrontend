@@ -13,13 +13,13 @@
             <p class="inputField">
                 Username:
             </p>
-            <input v-model="username" type="te0xt" class="inputBox" v-on:keypress.enter="handleSubmit">
+            <input v-model="username" type="text" name="username" class="inputBox" v-on:keypress.enter="handleSubmit">
         </div>
         <div class="inputSection">
             <p class="inputField">
                 Password:
             </p>
-            <input v-model="password"  type="password" class="inputBox" v-on:keypress.enter="handleSubmit">
+            <input v-model="password"  type="password" name="password" class="inputBox" v-on:keypress.enter="handleSubmit">
         </div>
         <input type="submit" class="submitBox" v-on:click="handleSubmit">
     </div>

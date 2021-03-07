@@ -5,7 +5,7 @@
         <div class="metaDiv">
             <TextBox class="nameContainer" fontSize="16pt" fontColor="white" backgroundColor="black" radius="5px" :text=author_name></TextBox>
         </div>
-        <div class="actionDiv">
+        <div class="accessAndDateDiv">
             <div id="accesDiv">
                 <p id="accesContentDiv">
                     {{translatedAccessMode}}
@@ -16,6 +16,12 @@
                     {{pub_date}} {{pub_time}}
                 </div>
             </div>
+        </div>
+        <div class="menuDiv">
+            <DropDownMenu>
+                <CustomMenuItem itemtext="Delete" imageFileName="delete.png" v-if="this.isUsersOwnPost(author_id)"></CustomMenuItem>
+                <CustomMenuItem itemtext="Report as ''non-offensive''" imageFileName="alert.png"></CustomMenuItem>
+            </DropDownMenu>
         </div>
     </div>
     <div class="messageContentDiv leftPadding" v-html="formattedText">

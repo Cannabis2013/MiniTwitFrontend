@@ -15,3 +15,11 @@
 {
     margin: 0 auto auto 0;
 }
+
+.templateContainer
+{
+    display: grid;
+    grid-auto-flow: row;
+    width: 1280px;
+    
+}

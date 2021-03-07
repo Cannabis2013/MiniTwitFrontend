@@ -7,6 +7,8 @@ import Start from "./components/start/index.vue"
 import SignUp from "./components/signup/index.vue"
 import SignIn from "./components/signin/index.vue"
 import UserMessages from "./components/usermessages/index.vue"
+import UserProfilePage from "./components/userprofile/index.vue"
+import DeleteMessagesPage from "./components/deletemessages/index.vue"
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -26,7 +28,7 @@ const routes = [
     path: '/', redirect: function()
     {
       // Redirect to appropriate page based on user signed in status
-      let tokenId = Vue.$cookies.get("TokenId");
+      const tokenId = Vue.$cookies.get("TokenId");
       if(tokenId === null)
         return "/home";
       else
@@ -44,6 +46,14 @@ const routes = [
   },
   {
     path: '/userMessages', component: UserMessages
+  },
+  {
+    path: '/userProfile', component: UserProfilePage,
+    children : [
+      {
+        path: 'deleteMessages', component: DeleteMessagesPage
+      }
+    ]
   }
 ]
 

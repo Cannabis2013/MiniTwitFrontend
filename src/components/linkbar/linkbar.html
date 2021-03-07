@@ -1,8 +1,7 @@
 
-<section class="linkbarcomponent">
-    <ActiveButton class="linkButton" itemTitle="Timeline" imageUrl="watch.png" target=""></ActiveButton>
-    <ActiveButton class="linkButton" itemTitle="Profile" imageUrl="user2.png" target=""></ActiveButton>
-    <ActiveButton class="linkButton" itemTitle="Search" imageUrl="search.png" target=""></ActiveButton>
+<section class="linkbarcomponent" v-if="this.userSignedIn">
+    <ActiveButton itemTitle="Timeline" imageUrl="watch.png" imageSize="24px" fontSize="13pt" target=""></ActiveButton>
+    <ActiveButton itemTitle="Search" imageUrl="search.png" imageSize="24px" fontSize="13pt" target=""></ActiveButton>
 </section>
 
 

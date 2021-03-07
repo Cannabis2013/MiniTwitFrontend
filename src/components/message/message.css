@@ -11,7 +11,7 @@
 {
     display: grid;
     grid-template-rows: 8px auto 8px;
-    grid-template-columns: 8px 72px 1fr 1fr 8px;
+    grid-template-columns: 8px 72px 1fr 128px 64px 8px;
     grid-row: 1 / 1;
     border-bottom: 1px solid black;
     height: 100%;
@@ -36,7 +36,7 @@
 {
     justify-self: start;
 }
-.actionDiv
+.accessAndDateDiv
 {
     grid-column: 4 / 4;
     grid-row: 2 / 2;
@@ -44,6 +44,7 @@
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
+    width: 128px;
 }
 #accesDiv
 {
@@ -82,6 +83,11 @@
     font-style: italic;
     margin: 0;
     text-align: center;
+}
+.menuDiv
+{
+    grid-column: 5 / 5;
+    grid-row: 2 / 2;
 }
 #followButtonDiv
 {
