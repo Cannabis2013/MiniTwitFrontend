@@ -50,7 +50,7 @@ export default {
           userName : un,
           password : pw,
           userMail : un,
-          localAddress : this.$cookies.get("LocalAddress")
+          TokenAddress : this.$cookies.get("TokenAddress")
         }
       }).then(response => this.handleResponse(response.data))
           .catch(data => this.handleNoResponse(data));

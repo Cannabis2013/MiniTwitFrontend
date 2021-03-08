@@ -1,6 +1,7 @@
 import TextBox from "../textbox/index.vue"
 import DropDownMenu from "../dropdownmenu/index.vue"
 import CustomMenuItem from "../menuitem/index.vue"
+//import {EventBus} from "@/eventBus";
 
 export default {
   name: 'messagecomponent',
@@ -16,7 +17,7 @@ export default {
       "author_id",
       "pub_time",
       "access",
-      "isUsersOwnPost"
+      "message_id"
   ],
   data () {
     return {
@@ -49,6 +50,11 @@ export default {
       {
           let id = this.$cookies.get("TokenId");
           return author_id === id;
+      },
+      handleRequestDeleteMessage : function()
+      {
+          console.log("Delete called!");
+          //EventBus.$emit("requestDeleteMessage",this.message_id);
       }
   }
 }

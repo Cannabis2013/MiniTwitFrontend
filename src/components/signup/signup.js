@@ -48,7 +48,7 @@ export default {
           userName : un,
           password : pw,
           userMail : un,
-          localAddress : this.$cookies.get("LocalAddress")
+          TokenAddress : this.$cookies.get("TokenAddress")
         },
         headers : {
           "Content-Type" : "application/json"

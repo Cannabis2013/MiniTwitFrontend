@@ -19,7 +19,7 @@
         </div>
         <div class="menuDiv">
             <DropDownMenu>
-                <CustomMenuItem itemtext="Delete" imageFileName="delete.png" v-if="this.isUsersOwnPost(author_id)"></CustomMenuItem>
+                <CustomMenuItem itemtext="Delete" imageFileName="delete.png" v-if="this.isUsersOwnPost(author_id)" @click="this.handleRequestDeleteMessage"></CustomMenuItem>
                 <CustomMenuItem itemtext="Report as ''non-offensive''" imageFileName="alert.png"></CustomMenuItem>
             </DropDownMenu>
         </div>

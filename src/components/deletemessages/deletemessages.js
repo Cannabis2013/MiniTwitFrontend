@@ -27,7 +27,7 @@ export default {
         header: "application/json",
         params: {
           tokenId : this.$cookies.get("TokenId"),
-          tokenAddress : this.$cookies.get("LocalAddress")
+          tokenAddress : this.$cookies.get("TokenAddress")
         }
       }).then(response => this.handleResponse(response)).
       catch(response => console.log(response.data()));

@@ -18,14 +18,14 @@ export default {
   methods: {
     showDropDown : function()
     {
-      DropDownAssembly.createFrame().onmousedown = this.menuLostFocus;
+      DropDownAssembly.createFrame().onclick = this.menuLostFocus;
       DropDownAssembly.showDropDownMenu(this._uid);
     },
     menuLostFocus : function()
     {
+      console.log("Frame clicked");
       DropDownAssembly.removeFrame();
       DropDownAssembly.hideDropDownMenu(this._uid);
-      console.log("blue event occured")
       this.isDropDownMenuShown = false;
     }
   }

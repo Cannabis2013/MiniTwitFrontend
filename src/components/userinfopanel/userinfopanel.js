@@ -28,7 +28,7 @@ export default {
         url : apiHostUrl + "SignOutUser",
         params : {
           tokenId : this.$cookies.get("TokenId"),
-          tokenAddress : this.$cookies.get("LocalAddress")
+          tokenAddress : this.$cookies.get("TokenAddress")
         }
       })
           .then(response => EventBus.$emit("UserSignOut",response))
@@ -37,7 +37,7 @@ export default {
   },
   mounted () {
     this.userName = this.$cookies.get("UserName");
-    this.IPAddress = this.$cookies.get("LocalAddress");
+    this.IPAddress = this.$cookies.get("TokenAddress");
 
   },
   methods: {

@@ -23,12 +23,12 @@ export default {
     handleRecieveAddress : function(response)
     {
       console.log(response["ip"]);
-      this.$cookies.set("LocalAddress",response.ip);
+      this.$cookies.set(" ",response.ip);
     },
     handleNoResponse : function(response)
     {
       console.log(response);
-      this.$cookies.set("LocalAddress","0.0.0.0");
+      this.$cookies.set("TokenAddress","0.0.0.0");
     }
   }
 }

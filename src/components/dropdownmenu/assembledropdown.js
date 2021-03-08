@@ -11,7 +11,7 @@ export default {
     createFrame() {
         let frame = document.createElement("div");
         frame.id = frameId;
-        frame.style = "background-color: transparent;position: absolute;top: 0;right:0;bottom: 0;left:0";
+        frame.style = "background-color: blue;position: absolute;top: 0;right:0;bottom: 0;left:0";
         document.body.append(frame);
         return frame;
     },

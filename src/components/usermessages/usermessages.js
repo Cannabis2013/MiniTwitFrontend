@@ -21,12 +21,12 @@ export default {
     formatNumberOfFollowers : function()
     {
       let c = this.metaInfo.numberOfFollowers;
-      if(c < 5)
-        return c + " (Loser)";
-      else if(c >= 5 && c < 10)
-        return c + " (Go get some more friends)"
-      else
+      if(c >= 25)
         return c + " (Wiseguy)"
+      else if(c >= 10)
+      return c + " (Go get some more friends)"
+      else
+        return c + " (Loser)";
     }
   },
   mounted () {
@@ -34,6 +34,7 @@ export default {
       this.$router.push("/");
     this.userName = this.$cookies.get("UserName");
     this.requestMessagesFromBackend();
+    
   },
   methods: {
     requestMessagesFromBackend : function()
@@ -43,7 +44,7 @@ export default {
         url : this.apiHostUrl + "GetAssociatedMessages",
         params : {
           tokenId : this.$cookies.get("TokenId"),
-          tokenAddress : this.$cookies.get("LocalAddress")
+          tokenAddress : this.$cookies.get("TokenAddress")
         }
       }).then(response => this.handleResponseFromBackend(response.data))
           .catch(response => this.handleNoResponseFromBackend(response));
@@ -68,6 +69,23 @@ export default {
     },
     handleClickEvent : function()
     {
+      this.requestMessagesFromBackend();
+    },
+    deleteMessage : function(msg_id)
+    {
+      axios({
+        method: "post",
+        url: this.apiHostUrl + "DeleteMessage",
+        params : {
+          TokenId : this.$cookies.get("TokenId"),
+          TokenAddress : this.$cookies.get("TokenAddress"),
+          messageId : msg_id
+        }
+      }).then(response => this.handleDeleteMessageResponse(response.data));
+    },
+    handleDeleteMessageResponse : function(response)
+    {
+      console.log(response);
       this.requestMessagesFromBackend();
     }
   }

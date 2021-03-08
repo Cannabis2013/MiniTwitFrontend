@@ -23,13 +23,13 @@ export default {
     {
       this.isTransmitting = true;
       const tId = this.$cookies.get("TokenId");
-      const localAddress = this.$cookies.get("LocalAddress");
+      const TokenAddress = this.$cookies.get("TokenAddress");
       axios({
         method : "post",
         url : this.apiHostUrl + "PostMessage",
         params : {
           tokenId : tId,
-          tokenAddress : localAddress,
+          tokenAddress : TokenAddress,
           text : this.userText,
           access : this.selectedAccessMode
         }
