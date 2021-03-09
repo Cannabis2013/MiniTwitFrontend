@@ -79,8 +79,8 @@ export default {
         method: "post",
         url: this.apiHostUrl + "DeleteMessage",
         params : {
-          TokenId : this.$cookies.get("TokenId"),
-          TokenAddress : this.$cookies.get("TokenAddress"),
+          tokenId : this.$cookies.get("TokenId"),
+          tokenAddress : this.$cookies.get("TokenAddress"),
           messageId : msg_id
         }
       }).then(response => this.handleDeleteMessageResponse(response.data));
@@ -88,9 +88,48 @@ export default {
     handleDeleteMessageResponse : function(response)
     {
       console.log(response);
+      let r = response.responseCode;
+      // Check backend response
+      if(r === 259)
+        this.requestMessagesFromBackend();
+    },
+    handleFollowUser : function(userName)
+    {
+      console.log("Username to follow: " + userName);
+      axios({
+        method : "post",
+        url : this.apiHostUrl + "FollowUser",
+        params : {
+          tokenId : this.$cookies.get("TokenId"),
+          tokenAddress : this.$cookies.get("TokenAddress"),
+          name : userName
+        }
+      }).then(response => this.handleFollowUserResponse(response.data))
+          .catch(response => console.log(response));
+    },
+    handleFollowUserResponse : function(response)
+    {
+      console.log(response);
+      this.requestMessagesFromBackend();
+    },
+    handleUnFollowUser : function(userName)
+    {
+      console.log("Username to unfollow: " + userName);
+      axios({
+        method : "post",
+        url : this.apiHostUrl + "UnFollowUser",
+        params : {
+          tokenId : this.$cookies.get("TokenId"),
+          tokenAddress : this.$cookies.get("TokenAddress"),
+          name : userName
+        }
+      }).then(response => this.handleUnFollowUserResponse(response.data))
+          .catch(response => console.log(response));
+    },
+    handleUnFollowUserResponse : function(response)
+    {
+      console.log(response);
       this.requestMessagesFromBackend();
     }
   }
 }
-
-

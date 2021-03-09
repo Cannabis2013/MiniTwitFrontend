@@ -19,8 +19,10 @@
         </div>
         <div class="menuDiv">
             <DropDownMenu ref="menu">
-                <CustomMenuItem itemtext="Delete" imageFileName="delete.png" v-if="this.isUsersOwnPost(author_id)" v-on:click.native="handleRequestDeleteMessage"></CustomMenuItem>
-                <CustomMenuItem itemtext="Report as ''non-offensive''" imageFileName="alert.png"></CustomMenuItem>
+                <CustomMenuItem itemtext="Delete" imageFileName="delete.png" v-if="isUsersOwnPost(author_id)" v-on:click.native="handleRequestDeleteMessage"></CustomMenuItem>
+                <CustomMenuItem itemtext="Follow user" imageFileName="follow.png" v-if="!(isUsersOwnPost(author_id) || isFollowing)" v-on:click.native="handleFollowUser"></CustomMenuItem>
+                <CustomMenuItem itemtext="Unfollow user" imageFileName="follow.png" v-if="!(isUsersOwnPost(author_id) || !isFollowing)" v-on:click.native="handleUnFollowUser"></CustomMenuItem>
+                <CustomMenuItem itemtext="Report as non-offensive" imageFileName="alert.png" v-on:click.native="handleReportPost"></CustomMenuItem>
             </DropDownMenu>
         </div>
     </div>

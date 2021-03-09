@@ -1,7 +1,6 @@
 import TextBox from "../textbox/index.vue"
 import DropDownMenu from "../dropdownmenu/index.vue"
 import CustomMenuItem from "../menuitem/index.vue"
-import {EventBus} from "@/eventBus";
 
 export default {
   name: 'messagecomponent',
@@ -17,11 +16,11 @@ export default {
       "author_id",
       "pub_time",
       "access",
-      "message_id"
+      "message_id",
+      "isFollowing"
   ],
   data () {
     return {
-        isFollowing : false
     }
   },
   computed: {
@@ -55,7 +54,25 @@ export default {
       {
           console.log("Delete called!");
           this.$refs.menu.menuLostFocus();
-          EventBus.$emit("requestDeleteMessage",this.message_id);
+          // Parent in this context is "usermessages" component
+          this.$parent.deleteMessage(this.message_id);
+      },
+      handleFollowUser : function()
+      {
+          console.log("Follow user called!");
+          this.$refs.menu.menuLostFocus();
+          this.$parent.handleFollowUser(this.author_name);
+      },
+      handleUnFollowUser : function()
+      {
+          console.log("Unfollow user called!");
+          this.$refs.menu.menuLostFocus();
+          this.$parent.handleUnFollowUser(this.author_name);
+      },
+      handleReportPost : function()
+      {
+          console.log("Report called!");
+          this.$refs.menu.menuLostFocus();
       }
   }
 }
