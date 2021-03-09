@@ -1,4 +1,5 @@
 import DropDownAssembly from "./assembledropdown.js"
+import {EventBus} from "@/eventBus";
 
 export default {
   name: 'dropdownmenu',
@@ -7,13 +8,12 @@ export default {
   props: [],
   data () {
     return {
-      isDropDownMenuShown : false
     }
   },
   computed: {
   },
   mounted () {
-    
+    EventBus.$on(`MenuItemClicked`,this.menuLostFocus);
   },
   methods: {
     showDropDown : function()
@@ -23,10 +23,9 @@ export default {
     },
     menuLostFocus : function()
     {
-      console.log("Frame clicked");
+      console.log("menuLostFocus called!");
       DropDownAssembly.removeFrame();
       DropDownAssembly.hideDropDownMenu(this._uid);
-      this.isDropDownMenuShown = false;
     }
   }
 }

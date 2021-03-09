@@ -3,10 +3,8 @@
     <div class="dropdownbuttondiv">
         <div :id="'ddb' + this._uid" class="dropdownbutton" @click="this.showDropDown">=</div>
     </div>
-    <div :id="'ddm' + this._uid" class="dropdownmenu" @mousedown="this.menuLostFocus">
-        <slot>
-            
-        </slot>
+    <div :id="'ddm' + this._uid" class="dropdownmenu">
+        <slot></slot>
     </div>
 </section>
 

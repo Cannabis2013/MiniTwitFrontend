@@ -3,6 +3,7 @@
     grid-template-columns: 9px 24px auto 9px;
     padding:9px;
     border-radius: 5px;
+    cursor: default;
 }
 .menuitem:hover
 {

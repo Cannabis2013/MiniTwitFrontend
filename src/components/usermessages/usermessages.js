@@ -34,6 +34,7 @@ export default {
       this.$router.push("/");
     this.userName = this.$cookies.get("UserName");
     this.requestMessagesFromBackend();
+    EventBus.$on("requestDeleteMessage", id => this.deleteMessage(id))
     
   },
   methods: {
@@ -73,6 +74,7 @@ export default {
     },
     deleteMessage : function(msg_id)
     {
+      console.log("Delete message with id: " + msg_id);
       axios({
         method: "post",
         url: this.apiHostUrl + "DeleteMessage",

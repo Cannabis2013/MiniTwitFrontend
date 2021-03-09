@@ -1,7 +1,7 @@
 import TextBox from "../textbox/index.vue"
 import DropDownMenu from "../dropdownmenu/index.vue"
 import CustomMenuItem from "../menuitem/index.vue"
-//import {EventBus} from "@/eventBus";
+import {EventBus} from "@/eventBus";
 
 export default {
   name: 'messagecomponent',
@@ -54,9 +54,8 @@ export default {
       handleRequestDeleteMessage : function()
       {
           console.log("Delete called!");
-          //EventBus.$emit("requestDeleteMessage",this.message_id);
+          this.$refs.menu.menuLostFocus();
+          EventBus.$emit("requestDeleteMessage",this.message_id);
       }
   }
 }
-
-
