@@ -1,8 +1,8 @@
 
 <section class="userprofile">
     <ProfileLinkBar>
-        <LinkButton itemTitle="Manage thoughts" :font-size=this.getLinkFontSize target="/userProfile/deleteMessages"></LinkButton>
-        <LinkButton itemTitle="Manage followers" :font-size=this.getLinkFontSize target=""></LinkButton>
+        <LinkButton itemTitle="Manage thoughts" :font-size=this.getLinkFontSize target="/userProfile/manageMessages"></LinkButton>
+        <LinkButton itemTitle="Manage followers" :font-size=this.getLinkFontSize target="/userProfile/manageFollowers"></LinkButton>
         <LinkButton itemTitle="Manage profile" :font-size=this.getLinkFontSize target=""></LinkButton>
     </ProfileLinkBar>
     <router-view></router-view>

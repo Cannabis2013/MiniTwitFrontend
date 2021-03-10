@@ -1,0 +1,57 @@
+.managefollowers {
+    display: grid;
+    width: 100%;
+    overflow: hidden;
+}
+
+.contentDiv
+{
+    display: grid;
+    grid-template-rows: 32px 64px 32px auto;
+}
+
+.titleDiv
+{
+    grid-row: 2/2;
+    color: white;
+    text-align: center;
+    margin: 0 0 24px; 
+    font-size: 48pt;
+}
+.followersContentDiv
+{
+    grid-row: 4/4;
+    display: grid;
+    width: 256px;
+    grid-auto-flow: row;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.followerColumn
+{
+    display: grid;
+    grid-template-columns: auto 64px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.userNameDiv
+{
+    margin:0;
+    color: white;
+    grid-column: 1 / 1;
+    text-align: center;
+    font-size: 20pt;
+}
+.followerButton
+{
+    grid-column: 2 / 2;
+    justify-self: center;
+    outline: none;
+    height: 28px;
+    margin-bottom: auto;
+    margin-top: auto;
+}

@@ -61,13 +61,13 @@ export default {
       {
           console.log("Follow user called!");
           this.$refs.menu.menuLostFocus();
-          this.$parent.handleFollowUser(this.author_name);
+          this.$parent.handleFollowUser(this.author_id);
       },
       handleUnFollowUser : function()
       {
           console.log("Unfollow user called!");
           this.$refs.menu.menuLostFocus();
-          this.$parent.handleUnFollowUser(this.author_name);
+          this.$parent.handleUnFollowUser(this.author_id);
       },
       handleReportPost : function()
       {

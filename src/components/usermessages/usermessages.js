@@ -93,16 +93,16 @@ export default {
       if(r === 259)
         this.requestMessagesFromBackend();
     },
-    handleFollowUser : function(userName)
+    handleFollowUser : function(userId)
     {
-      console.log("Username to follow: " + userName);
+      console.log("Username to follow: " + userId);
       axios({
         method : "post",
         url : this.apiHostUrl + "FollowUser",
         params : {
           tokenId : this.$cookies.get("TokenId"),
           tokenAddress : this.$cookies.get("TokenAddress"),
-          name : userName
+          whomid : userId
         }
       }).then(response => this.handleFollowUserResponse(response.data))
           .catch(response => console.log(response));
@@ -112,16 +112,16 @@ export default {
       console.log(response);
       this.requestMessagesFromBackend();
     },
-    handleUnFollowUser : function(userName)
+    handleUnFollowUser : function(userId)
     {
-      console.log("Username to unfollow: " + userName);
+      console.log("Username to unfollow: " + userId);
       axios({
         method : "post",
         url : this.apiHostUrl + "UnFollowUser",
         params : {
           tokenId : this.$cookies.get("TokenId"),
           tokenAddress : this.$cookies.get("TokenAddress"),
-          name : userName
+          whomid : userId
         }
       }).then(response => this.handleUnFollowUserResponse(response.data))
           .catch(response => console.log(response));
