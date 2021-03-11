@@ -15,7 +15,7 @@ export default {
       userName: "",
       race : "Privilliged white",
       gender : "man",
-      birthYear : "",
+      birthYear : "1900",
       sexualOrientation : "straight",
       politicalOrientation : "altright",
       password: "",

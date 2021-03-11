@@ -45,19 +45,16 @@ export default {
       this.pendingForReply = true;
       axios({
         method : "post",
+        header : "application/json",
         url : this.apiHostUrl + "SignInUser",
-        params : {
+        data : {
           userName : un,
           password : pw,
-          userMail : un,
+          Email : un,
           TokenAddress : this.$cookies.get("TokenAddress")
         }
-      }).then(response => this.handleResponse(response.data))
-          .catch(data => this.handleNoResponse(data));
-    },
-    handleResponse : function(response)
-    {
-      /*
+      }).then(response => {
+        /*
         Backend returns data in the following format:
           - responseCode : Response code in decimal
           - userName
@@ -69,22 +66,24 @@ export default {
           - 2 : user sign-in success
           - 64 : User doesn't exist
           - 129 : That means user exists but sign-in failed
-          - 1024 : Bad json argument - This typically occurs when clients send bad formatted json objects
+          - 258 : Bad json argument - This typically occurs when clients send bad formatted json objects
        */
-      if (response["responseCode"] === 2)
-      {
-        // User is signed in
-        this.$cookies.set("TokenId", response["tokenId"]);
-        this.$cookies.set("UserName", response["userName"]);
-        EventBus.$emit("UserStatusChanged",true);
-        this.$router.push('/');
-      }
+        if (response.data["responseCode"] === 2)
+        {
+          // User is signed in
+          this.$cookies.set("TokenId", response.data["tokenId"]);
+          this.$cookies.set("UserName", response.data["userName"]);
+          EventBus.$emit("UserStatusChanged",true);
+          this.$router.push('/');
+        }
         // User doesn't exist
-      else if(response["responseCode"] === 64)
-      {
-        this.errorMessage = "User with provided credentials doesn't exist.";
-      }
-      this.pendingForReply = false;
+        else if(response["responseCode"] === 64)
+        {
+          this.errorMessage = "User with provided credentials doesn't exist.";
+        }
+        this.pendingForReply = false;
+      })
+          .catch(data => this.handleNoResponse(data));
     },
     handleNoResponse : function(response){
       this.pendingForReply = false;
