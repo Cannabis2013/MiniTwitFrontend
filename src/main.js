@@ -8,8 +8,9 @@ import SignUp from "./components/signup/index.vue"
 import SignIn from "./components/signin/index.vue"
 import UserMessages from "./components/usermessages/index.vue"
 import UserProfilePage from "./components/userprofile/index.vue"
-import DeleteMessagesPage from "./components/deletemessages/index.vue"
+import ManageMessages from "./components/managethoughts/index.vue"
 import ManageFollowers from "./components/managefollowers/index.vue"
+
 
 Vue.use(VueRouter)
 Vue.use(VueCookies)
@@ -52,7 +53,7 @@ const routes = [
     path: '/userProfile', component: UserProfilePage,
     children : [
       {
-        path: 'manageMessages', component: DeleteMessagesPage
+        path: 'manageMessages', component: ManageMessages
       },
       {
         path: "manageFollowers", component: ManageFollowers

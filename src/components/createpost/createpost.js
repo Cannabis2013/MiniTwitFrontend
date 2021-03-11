@@ -21,21 +21,22 @@ export default {
   methods: {
     handleShare : function ()
     {
-      this.isTransmitting = true;
-      const tId = this.$cookies.get("TokenId");
-      const TokenAddress = this.$cookies.get("TokenAddress");
-      axios({
+        if(this.userText === "")
+            return;
+        this.isTransmitting = true;
+        const tId = this.$cookies.get("TokenId");
+        const TokenAddress = this.$cookies.get("TokenAddress");
+        axios({
         method : "post",
         header : "application/json",
         url : this.apiHostUrl + "PostMessage",
         data : {
-          TokenId : tId,
-          TokenAddress : TokenAddress,
-          Text : this.userText,
-          Access : this.selectedAccessMode
+            TokenId : tId,
+            TokenAddress : TokenAddress,
+            Text : this.userText,
+            Access : this.selectedAccessMode
         }
-      })
-          .then(response => {
+        }).then(response => {
             let payLoad = response.data;
             console.log(payLoad);
             this.isTransmitting = false;

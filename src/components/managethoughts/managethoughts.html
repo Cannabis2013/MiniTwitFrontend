@@ -1,0 +1,22 @@
+
+<section class="managethoughts">
+    <div class="contentDiv">
+        <div class="titleDiv" >Messages</div>
+        <div class="messagesContentDiv">
+            <Message v-for="message in messages"
+                     :key="message.author_id"
+                     :author_name="message.author_name"
+                     :text="message.text" 
+                     :pub_date="message.pub_date" 
+                     :pub_time="message.pub_time"
+                     :author_id="message.author_id"
+                     :message_id="message.message_id"
+                     :isFollowing="message.isFollowing"
+                     :access="message.access" 
+                     style="width: 512px" 
+                     class="center">
+            </Message>
+        </div>
+    </div>
+</section>
+
