@@ -9,16 +9,65 @@
     <div style="grid-column: 2 / 2;grid-row: 1 / span 2;height: 100%; width: 20px;"></div>
     <div class="inputSections">
         <div class="inputSection">
-            <p class="inputField">
-                Username:
-            </p>
-            <input v-model="username" type="text" class="inputBox">
+            <p class="inputField">Username:</p>
+            <input v-model="userName" type="text" class="inputBox">
         </div>
         <div class="inputSection">
-            <p class="inputField">
-                Password:
-            </p>
+            <p class="inputField">Password:</p>
             <input v-model="password"  type="password" class="inputBox">
+        </div>
+        <p style="font-size: 15pt;color: black;"><b>Optional</b></p>
+        <div class="inputSection">
+            <p class="inputField">First name:</p>
+            <input v-model="firstName" type="text" class="inputBox">
+        </div>
+        <div class="inputSection">
+            <p class="inputField">Last name:</p>
+            <input v-model="lastName" type="text" class="inputBox">
+        </div>
+        <div class="inputSection">
+            <p class="inputField">Year of birth:</p>
+            <input v-model="birthYear" type="text" class="inputBox">
+        </div>
+        <div class="inputSection">
+            <p class="inputField">Race:</p>
+            <select class="inputBox" v-model="race">
+                <option value="Privilliged white">Priviligged white</option>
+                <option value="White trash">White trash</option>
+                <option value="Nigger">Nigger</option>
+                <option value="Asian">Asian</option>
+                <option value="Bean eater/border jumper">Bean eater/border jumper</option>
+            </select>
+        </div>
+        <div class="inputSection">
+            <p class="inputField">Gender:</p>
+            <select class="inputBox" v-model="gender">
+                <option value="man">Man</option>
+                <option value="female">Bitch</option>
+                <option value="Queer">Queer</option>
+                <option value="other">Non-binary</option>
+            </select>
+        </div>
+        <div class="inputSection">
+            <p class="inputField">Sexual orientation:</p>
+            <select class="inputBox" v-model="sexualOrientation">
+                <option value="straight">Of course straight</option>
+                <option value="Gay">Gay</option>
+                <option value="Bisexual">Bisexual</option>
+                <option value="Pervert">I'm attracted to everything that walks or breathes</option>
+                <option value="Negrofile">Niggers and dead people</option>
+                <option value="Horse">Let's just say that I like horses</option>
+            </select>
+        </div>
+        <div class="inputSection">
+            <p class="inputField">Political orientation:</p>
+            <select class="inputBox" v-model="politicalOrientation">
+                <option value="Liberal">Liberal scum</option>
+                <option value="Social-democratic">Radical communist</option>
+                <option value="neocon"> Bush conservative</option>
+                <option value="altright">Cruz 4 prezz</option>
+                <option value="kkk">Confederate 4 life</option>
+            </select>
         </div>
         <input type="submit" class="submitBox" v-on:click="handleSubmit">
     </div>

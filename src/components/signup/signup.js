@@ -10,7 +10,14 @@ export default {
   props: [],
   data () {
     return {
-      username: "",
+      firstName : "",
+      lastName : "",
+      userName: "",
+      race : "Privilliged white",
+      gender : "man",
+      birthYear : "",
+      sexualOrientation : "straight",
+      politicalOrientation : "altright",
       password: "",
       errorMessage: ""
     }
@@ -21,10 +28,10 @@ export default {
   {
     handleSubmit : function() 
     {
-      let u = this.username;
+      let u = this.userName;
       let p = this.password;
       if(this.verifyInput(u,p))
-        this.sendSignInRequest(u,p);
+        this.sendSignUpRequest(u,p);
       else
         this.errorMessage = "Please fill in all fields!";
     },
@@ -42,13 +49,21 @@ export default {
     sendSignUpRequest : function(un,pw)
     {
       axios({
-        method : "post",
+        method : "post", 
+        header : "application/json",
         url : this.apiHostUrl + "signUpUser",
-        params : {
-          userName : un,
-          password : pw,
-          userMail : un,
-          TokenAddress : this.$cookies.get("TokenAddress")
+        data : {
+          TokenAddress : this.$cookies.get("TokenAddress"),
+          UserName : un,
+          Password : pw,
+          FirstName : this.firstName,
+          LastName : this.lastName,
+          Email : un, 
+          Gender : this.gender,
+          Race : this.race, 
+          YearOfBirth : this.birthYear,
+          SexualOrientation : this.sexualOrientation,
+          PoliticalOrientation : this.politicalOrientation
         },
         headers : {
           "Content-Type" : "application/json"

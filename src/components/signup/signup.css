@@ -1,12 +1,12 @@
 .signupcomponent {
     display: grid;
-    grid-template-columns: 128px 256px;
+    grid-template-columns: 128px auto;
     grid-template-rows: 64px auto 1fr;
     margin: 10px auto 0;
     width: 408px;
     background-color: saddlebrown;
     color:white;
-    padding: 12px;
+    padding: 9px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -30,6 +30,8 @@
     grid-column: 2 / 2;
     grid-row: 2 /  2;
     grid-auto-flow: row;
+    overflow: hidden;
+    padding-left: 9px;
     
 }
 
@@ -37,7 +39,7 @@
 {
     display: grid;
     color: white;
-    grid-template-columns: 96px 192px;
+    grid-template-columns: 128px auto;
     grid-template-rows: auto 16px auto;
 }
 
@@ -47,13 +49,15 @@
     grid-row: 2 / 2;
     overflow: hidden;
     margin: 0;
-    text-align: center;
+    font-size: 11pt;
+    text-align: left;
 }
 
 .inputBox
 {
     grid-column: 2 / 2;
     grid-row: 1 / span 3;
+    width: 100%;
 }
 
 .submitBox
