@@ -1,6 +1,7 @@
 import TextBox from "../textbox/index.vue"
 import DropDownMenu from "../dropdownmenu/index.vue"
 import CustomMenuItem from "../menuitem/index.vue"
+import axios from "axios";
 
 export default {
   name: 'messagecomponent',
@@ -50,24 +51,65 @@ export default {
           let id = this.$cookies.get("TokenId");
           return author_id === id;
       },
-      handleRequestDeleteMessage : function()
+      handleDeleteMessage : function()
       {
-          console.log("Delete called!");
           this.$refs.menu.menuLostFocus();
-          // Parent in this context is "usermessages" component
-          this.$parent.deleteMessage(this.message_id);
+          let msg_id = this.message_id;
+          console.log("Delete message with id: " + msg_id);
+          axios({
+              method: "post",
+              url: this.apiHostUrl + "DeleteMessage",
+              params : {
+                  tokenId : this.$cookies.get("TokenId"),
+                  tokenAddress : this.$cookies.get("TokenAddress"),
+                  messageId : msg_id
+              }
+          }).then(data => {
+              let response = data.data;
+              console.log(response);
+              let r = response.responseCode;
+              // Check backend response
+              if(r === 259)
+                  this.$emit("stateChange");
+          }).catch(response => console.log(response));
       },
       handleFollowUser : function()
       {
           console.log("Follow user called!");
           this.$refs.menu.menuLostFocus();
-          this.$parent.handleFollowUser(this.author_id);
+          let userId = this.author_id;
+          console.log("Username to follow: " + userId);
+          axios({
+              method : "post",
+              url : this.apiHostUrl + "FollowUser",
+              params : {
+                  tokenId : this.$cookies.get("TokenId"),
+                  tokenAddress : this.$cookies.get("TokenAddress"),
+                  whomid : userId
+              }
+          }).then(response => {
+              console.log(response);
+              this.$emit("stateChange");
+          });
       },
       handleUnFollowUser : function()
       {
           console.log("Unfollow user called!");
           this.$refs.menu.menuLostFocus();
-          this.$parent.handleUnFollowUser(this.author_id);
+          let userId = this.author_id;
+          console.log("Username to unfollow: " + userId);
+          axios({
+              method : "post",
+              url : this.apiHostUrl + "UnFollowUser",
+              params : {
+                  tokenId : this.$cookies.get("TokenId"),
+                  tokenAddress : this.$cookies.get("TokenAddress"),
+                  whomid : userId
+              }
+          }).then(response => {
+              console.log(response);
+              this.$emit("stateChange");
+          });
       },
       handleReportPost : function()
       {

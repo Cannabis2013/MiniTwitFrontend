@@ -14,7 +14,8 @@
                      :isFollowing="message.isFollowing"
                      :access="message.access" 
                      style="width: 512px" 
-                     class="center">
+                     class="center" 
+                     v-on:stateChange="requestMessagesFromBackend">
             </Message>
         </div>
     </div>

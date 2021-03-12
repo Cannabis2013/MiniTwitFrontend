@@ -34,8 +34,6 @@ export default {
       this.$router.push("/");
     this.userName = this.$cookies.get("UserName");
     this.requestMessagesFromBackend();
-    EventBus.$on("requestDeleteMessage", id => this.deleteMessage(id))
-    
   },
   methods: {
     requestMessagesFromBackend : function()
@@ -47,88 +45,21 @@ export default {
           tokenId : this.$cookies.get("TokenId"),
           tokenAddress : this.$cookies.get("TokenAddress")
         }
-      }).then(response => this.handleResponseFromBackend(response.data))
-          .catch(response => this.handleNoResponseFromBackend(response));
-    },
-    handleResponseFromBackend : function(response)
-    {
-      if(response.responseCode === 1)
-      {
-        // Backend signals that user is not signed in
-        EventBus.$emit("UserSignOut",response);
-        return;
-      }
-      console.log(response);
-      this.messages = response.payLoad;
-      this.metaInfo = response.userMeta;
-      console.log(this.messages);
-    },
-    handleNoResponseFromBackend : function(response)
-    {
-      console.log(response);
-      EventBus.$emit("UserSignOut",response);
+      }).then(response => {
+        let payLoad = response.data;
+        if(payLoad.responseCode === 1)
+        {
+          // Backend signals that user is not signed in
+          EventBus.$emit("UserSignOut",payLoad);
+          return;
+        }
+        this.messages = payLoad.payLoad;
+        this.metaInfo = payLoad.userMeta;
+      })
+          .catch(response => EventBus.$emit("UserSignOut",response));
     },
     handleClickEvent : function()
     {
-      this.requestMessagesFromBackend();
-    },
-    deleteMessage : function(msg_id)
-    {
-      console.log("Delete message with id: " + msg_id);
-      axios({
-        method: "post",
-        url: this.apiHostUrl + "DeleteMessage",
-        params : {
-          tokenId : this.$cookies.get("TokenId"),
-          tokenAddress : this.$cookies.get("TokenAddress"),
-          messageId : msg_id
-        }
-      }).then(response => this.handleDeleteMessageResponse(response.data));
-    },
-    handleDeleteMessageResponse : function(response)
-    {
-      console.log(response);
-      let r = response.responseCode;
-      // Check backend response
-      if(r === 259)
-        this.requestMessagesFromBackend();
-    },
-    handleFollowUser : function(userId)
-    {
-      console.log("Username to follow: " + userId);
-      axios({
-        method : "post",
-        url : this.apiHostUrl + "FollowUser",
-        params : {
-          tokenId : this.$cookies.get("TokenId"),
-          tokenAddress : this.$cookies.get("TokenAddress"),
-          whomid : userId
-        }
-      }).then(response => this.handleFollowUserResponse(response.data))
-          .catch(response => console.log(response));
-    },
-    handleFollowUserResponse : function(response)
-    {
-      console.log(response);
-      this.requestMessagesFromBackend();
-    },
-    handleUnFollowUser : function(userId)
-    {
-      console.log("Username to unfollow: " + userId);
-      axios({
-        method : "post",
-        url : this.apiHostUrl + "UnFollowUser",
-        params : {
-          tokenId : this.$cookies.get("TokenId"),
-          tokenAddress : this.$cookies.get("TokenAddress"),
-          whomid : userId
-        }
-      }).then(response => this.handleUnFollowUserResponse(response.data))
-          .catch(response => console.log(response));
-    },
-    handleUnFollowUserResponse : function(response)
-    {
-      console.log(response);
       this.requestMessagesFromBackend();
     }
   }

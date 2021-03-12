@@ -9,9 +9,15 @@
             <option value=4>Friends only</option>
             <option value=8>Only me</option>
         </select>
-        <button class="submitButton" v-on:click="handleShare">Share</button>
     </div>
     <textarea class="textDiv" placeholder="Write a thought here" v-model="userText"></textarea>
-    <div class="footerDiv"></div>
+    <div class="footerDiv">
+        <div class="fontDiv">
+            <p class="label">Font:</p>
+            <select class="fontSelector">
+            </select>
+        </div>
+        <button class="submitButton" v-on:click="handleShare">Share</button>
+    </div>
 </section>
 

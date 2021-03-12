@@ -19,6 +19,8 @@
                       :author_id="message.author_id"
                       :message_id="message.message_id"
                       :isFollowing="message.isFollowing"
-                      :access="message.access" style="width: 65%"></MessageModel>
+                      :access="message.access" style="width: 65%" 
+                      v-on:stateChange="requestMessagesFromBackend">
+        </MessageModel>
     </div>
 </section>

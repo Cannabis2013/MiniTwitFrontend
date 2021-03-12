@@ -1,6 +1,6 @@
 .createpost {
     display: grid;
-    grid-template-rows: 64px auto 5px;
+    grid-template-rows: 64px auto 5px 32px 5px;
     background-color: saddlebrown;
     overflow: hidden;
     border-radius: 5px;
@@ -10,7 +10,7 @@
 {
     display: grid;
     grid-row: 1 / 1;
-    grid-template-columns:9px 256px 1fr auto 9px;
+    grid-template-columns:9px 256px auto 9px;
     overflow: auto;
 }
 
@@ -37,28 +37,11 @@
     height: 24px;
     margin-top: auto;
     margin-bottom: auto;
+    border-radius: 5px;
 }
 #AccessSelector:focus
 {
     outline: none;
-}
-
-.submitButton{
-    grid-column: 4 / 4;
-    justify-self: end;
-    border-radius: 10px;
-    height: 36px;
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.submitButton:focus
-{
-    outline: none;
-}
-
-.submitButton:hover
-{
-    opacity: 0.75;
 }
 .textDiv
 {
@@ -69,6 +52,8 @@
     background-color: transparent;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    border-left: 0;
+    border-right: 0;
     color: white;
     grid-row: 2 / 2;
 }
@@ -77,6 +62,54 @@
 }
 
 .footerDiv{
-    grid-row: 3 / 3;
-    background-color: black;
+    grid-row: 4 / 4;
+    display: grid;
+    grid-auto-flow: column;
+    overflow: hidden;
+    padding-left: 9px;
+    padding-right: 9px;
+}
+.fontDiv
+{
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+.label
+{
+    grid-column: 1/1;
+    margin:auto 0 auto 0;
+    justify-self: end;
+    color: white;
+    font-size: 19pt;
+}
+.fontSelector
+{
+    grid-column: 2/2;
+    height: 20px;
+    margin: auto 0 auto 0;
+    width: 128px;
+}
+.submitButton{
+    grid-column: 4 / 4;
+    justify-self: end;
+    border-radius: 10px;
+    height: 32px;
+    width: 64px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: darkred;
+    border:0;
+    color: white;
+    font-size: 13pt;
+}
+.submitButton:focus
+{
+    outline: none;
+}
+
+.submitButton:hover
+{
+    opacity: 0.75;
+    border: 3px solid saddlebrown;
+    font-size: 10pt;
 }
