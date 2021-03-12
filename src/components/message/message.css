@@ -46,7 +46,7 @@
     overflow: hidden;
     width: 128px;
 }
-#accesDiv
+#accessDiv
 {
     display: grid;
     grid-template-rows: auto auto auto;
@@ -58,7 +58,7 @@
     background-color: sandybrown;
     border-radius: 10px;
 }
-#accesContentDiv
+#accessContentDiv
 {
     text-align: center;
     margin: 0;
