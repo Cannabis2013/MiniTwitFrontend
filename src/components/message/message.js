@@ -17,6 +17,8 @@ export default {
       "author_id",
       "pub_time",
       "access",
+      "fontFamily",
+      "fontSize",
       "message_id",
       "isFollowing"
   ],

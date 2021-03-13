@@ -19,6 +19,8 @@
                       :author_id="message.author_id"
                       :message_id="message.message_id"
                       :isFollowing="message.isFollowing"
+                      :fontFamily="message.fontFamily"
+                      :fontSize="message.fontSize"
                       :access="message.access" style="width: 65%" 
                       v-on:stateChange="requestMessagesFromBackend">
         </MessageModel>

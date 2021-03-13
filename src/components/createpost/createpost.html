@@ -17,7 +17,7 @@
     </textarea>
     <div class="footerDiv">
         <div class="fontDiv">
-            <p class="label">Font:</p>
+            <p class="label">Font</p>
             <select class="fontSelector" v-model="fontFamily">
                 <option v-for="font in fonts" :value="font">
                     {{font}}
@@ -25,7 +25,7 @@
             </select>
         </div>
         <div class="fontDiv">
-            <p class="label">Font:</p>
+            <p class="label">Size</p>
             <select class="fontSizeSelector" v-model="fontSize">
                 <option v-for="size in computePointSizes" :value="size">
                     {{size}}

@@ -72,7 +72,7 @@
 .fontDiv
 {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 5px 1fr;
 }
 .label
 {
@@ -80,11 +80,11 @@
     margin:auto 0 auto 0;
     justify-self: end;
     color: white;
-    font-size: 19pt;
+    font-size: 15pt;
 }
 .fontSelector
 {
-    grid-column: 2/2;
+    grid-column: 3/3;
     height: 20px;
     margin: auto 0 auto 0;
     width: 128px;
@@ -92,7 +92,7 @@
 }
 .fontSizeSelector
 {
-    grid-column: 2/2;
+    grid-column: 3/3;
     height: 20px;
     margin: auto 0 auto 0;
     width: 64px;
